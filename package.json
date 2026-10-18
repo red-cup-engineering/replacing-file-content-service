@@ -4,6 +4,11 @@
   "private": true,
   "type": "module",
   "description": "Replaces a literal string in one text file using an atomic write.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-file-engineering-services-section.git",
+    "directory": "services/file-projection-services-section/services/replacing-file-content-service"
+  },
   "bin": {
     "replace-file-content": "./scripts/replace-file-content.mjs"
   },
