@@ -1,0 +1,25 @@
+// Adapted from test/replace-file-content.test.mjs to import the installed package.
+import assert from "node:assert/strict";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import test from "node:test";
+
+import { replaceFileContent } from "@red-cup-engineering/replacing-file-content-service";
+
+test("REPLACE-CONTENT-QUICKSTART", async () => {
+  const root = await mkdtemp(join(tmpdir(), "replace-file-content-"));
+  const path = join(root, "example.txt");
+  try {
+    await writeFile(path, "old and old\n");
+    const preview = await replaceFileContent({ path, search: "old", replacement: "new", expectedCount: 2, dryRun: true });
+    assert.equal(preview.matches, 2);
+    assert.equal(await readFile(path, "utf8"), "old and old\n");
+
+    const applied = await replaceFileContent({ path, search: "old", replacement: "new", expectedCount: 2 });
+    assert.equal(applied.changed, true);
+    assert.equal(await readFile(path, "utf8"), "new and new\n");
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
