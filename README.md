@@ -11,4 +11,4 @@ Replaces a literal string in one text file using an atomic write.
 
 ## Acceptance
 
-Run `npm test` for the source suite. See the [API reference](docs/API.md) and [runnable consumer example](examples/quickstart.test.mjs).
+Run `npm test` for the source suite. See the [runnable consumer example](examples/quickstart.test.mjs).
