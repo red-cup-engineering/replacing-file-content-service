@@ -1,0 +1,27 @@
+{
+  "name": "@red-cup-engineering/replacing-file-content-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Replaces a literal string in one text file using an atomic write.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/replacing-file-content-service.git"
+  },
+  "bin": {
+    "replace-file-content": "./scripts/replace-file-content.mjs"
+  },
+  "exports": "./scripts/replace-file-content.mjs",
+  "scripts": {
+    "check": "node --check scripts/replace-file-content.mjs",
+    "verify": "npm run check"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
+  }
+}
